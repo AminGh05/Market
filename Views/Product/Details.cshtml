@@ -1,0 +1,57 @@
+﻿@using Market.Models.ViewModels
+@model DetailsViewModel
+
+@{
+    ViewData["Title"] = Model.Product.Name;
+}
+
+<div class="container mt-5">
+    <!-- product title -->
+    <div class="text-center mb-4">
+        <h1 class="display-4 text-primary">@Model.Product.Name</h1>
+        <hr class="w-50 mx-auto" />
+    </div>
+
+    <!-- product image and details -->
+    <div class="row g-5">
+        <div class="col-md-6 text-center">
+            <img src="@Url.Content($"/img/{Model.Product.Name}.jpg")"
+                 alt="@Model.Product.Name"
+                 class="img-thumbnail rounded shadow-sm"
+                 width="100%">
+        </div>
+
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <p class="fs-5 text-muted">@Model.Product.Description</p>
+
+            @if (Model.Product.Item != null)
+            {
+                <h3 class="text-success fw-bold mb-4">Price: @Model.Product.Item.Price $</h3>
+            }
+
+            <a class="btn btn-primary btn-lg w-50" asp-controller="Product" asp-action="AddToCart" asp-route-id="@Model.Product.ItemId">
+                Add To Cart
+            </a>
+        </div>
+    </div>
+
+    <!-- categories section -->
+    <div class="mt-5">
+        <h2 class="text-center mb-4 text-dark">Categories</h2>
+        <div class="row d-flex justify-content-center flex-wrap">
+            @foreach (var category in Model.Categories)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-8 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title">@category.Name</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@category.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

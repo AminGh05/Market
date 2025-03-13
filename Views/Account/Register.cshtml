@@ -1,0 +1,62 @@
+﻿@model Market.Models.ViewModels.RegisterViewModel
+
+@{
+	ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+	<h1 class="text-center text-primary display-5 mb-4">Create an Account</h1>
+
+	<div class="row justify-content-center">
+		<!-- register form card -->
+		<div class="col-md-6">
+			<div class="card shadow p-4">
+				<div class="card-body">
+					<h2 class="text-center text-secondary mb-4">Sign Up</h2>
+
+					<form asp-action="Register">
+						<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+						<!-- username -->
+						<div class="mb-3">
+							<label asp-for="Username" class="form-label"></label>
+							<input asp-for="Username" class="form-control" placeholder="Enter your username" />
+							<span asp-validation-for="Username" class="text-danger"></span>
+						</div>
+
+						<!-- email -->
+						<div class="mb-3">
+							<label asp-for="Email" class="form-label"></label>
+							<input asp-for="Email" class="form-control" type="email" placeholder="Enter your email" />
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+
+						<!-- password -->
+						<div class="mb-3">
+							<label asp-for="Password" class="form-label"></label>
+							<input asp-for="Password" class="form-control" type="password" placeholder="Enter a password" />
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+
+						<!-- confirm password -->
+						<div class="mb-4">
+							<label asp-for="RePassword" class="form-label"></label>
+							<input asp-for="RePassword" class="form-control" type="password" placeholder="Confirm your password" />
+							<span asp-validation-for="RePassword" class="text-danger"></span>
+						</div>
+
+						<!-- submit button -->
+						<div class="d-grid">
+							<input type="submit" value="Create Account" class="btn btn-primary btn-lg" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts
+{
+	<partial name="_ValidationScriptsPartial" />
+}

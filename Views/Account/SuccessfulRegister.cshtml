@@ -1,0 +1,16 @@
+﻿@using Market.Models.ViewModels
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "SuccessfulRegister";
+}
+
+<h1>Successful Register</h1>
+<div class="alert alert-success">
+    User @Model.Username is successfully registered
+    <p>
+        You can login through this link:
+        <a href="#" style="text-decoration:none">Login</a>
+    </p>
+</div>
+

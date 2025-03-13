@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Product>
+
+
+@{
+	ViewData["Title"] = ViewData["GroupName"];
+	Layout = "_Store";
+	ViewBag.StoreTitle = ViewData["GroupName"];
+}
+
+@foreach (var item in Model)
+{
+	<partial name="_ProductBox" model="@item" />
+}

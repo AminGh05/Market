@@ -1,0 +1,12 @@
+﻿@model Product
+
+<!-- box of product with image, name and "more" link -->
+<div class="col-3">
+    <div class="card">
+        <img src="/img/@(Model.Name).jpg" alt="Product" height="160" width="160" class="card-img-top img-thumbnail" />
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <a asp-action="Details" asp-controller="Product" asp-route-id=@Model.Id style="text-decoration:none">More</a>
+        </div>
+    </div>
+</div>

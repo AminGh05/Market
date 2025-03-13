@@ -1,0 +1,49 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+@if (Model != null) 
+{
+    <h1>Cart</h1>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Details)
+            {
+                <tr>
+                    @if (item.Product != null)
+                    {
+                        <td>@item.Product.Name</td>
+                    }
+                    <td>@item.Count</td>
+                    <td>@(item.Count * item.Price)</td>
+                    <td>
+                        <a asp-action="RemoveCartItem" asp-route-id="@item.Id" style="text-decoration:none">
+                            Remove
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h5>
+        Total: @Model.Details.Sum(s => s.Count * s.Price) $
+    </h5>
+}
+else
+{
+    <div class="alert alert-danger">
+        No Order!
+    </div>
+}

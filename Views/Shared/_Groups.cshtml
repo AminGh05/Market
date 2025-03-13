@@ -1,0 +1,14 @@
+﻿@using Market.Data.Repositories
+@inject IGroupRepository GroupRepository
+
+
+<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	Groups
+</a>
+
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	@foreach (var cat in GroupRepository.GetCategories())
+	{
+		<a class="dropdown-item" href="/Group/@cat.Id/@cat.Name">@cat.Name</a>
+	}
+</div>

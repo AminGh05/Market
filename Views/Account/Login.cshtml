@@ -1,0 +1,61 @@
+﻿@model Market.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary display-5 mb-4">Welcome Back</h1>
+
+    <div class="row justify-content-center">
+        <!-- login form card -->
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <div class="card-body">
+                    <h2 class="text-center text-secondary mb-4">Log In to Your Account</h2>
+
+                    <form asp-action="Login">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <!-- username field -->
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label"></label>
+                            <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <!-- password field -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- remember-me checkbox -->
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" asp-for="RememberMe" />
+                            <label class="form-check-label">
+                                @Html.DisplayNameFor(model => model.RememberMe)
+                            </label>
+                        </div>
+
+                        <!-- submit Button -->
+                        <div class="d-grid mb-2">
+                            <input type="submit" value="Log In" class="btn btn-primary btn-lg" />
+                        </div>
+
+                        <!-- optional Links -->
+                        <div class="text-center">
+                            <a asp-action="Register" class="text-secondary">Create an account</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
