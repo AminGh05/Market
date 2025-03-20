@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Market.Data.Repositories;
+﻿using Market.Data.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Market.Components
 {

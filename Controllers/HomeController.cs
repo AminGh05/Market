@@ -1,7 +1,7 @@
-using System.Diagnostics;
 using Market.Data;
 using Market.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace Market.Controllers
 {
