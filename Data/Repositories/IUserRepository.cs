@@ -16,7 +16,7 @@ namespace Market.Data.Repositories
 
 		public UserRepository(MarketContext context)
 		{
-			_context = context;			
+			_context = context;
 		}
 
 		public void AddUser(User user)

@@ -49,7 +49,7 @@ namespace Market.Controllers
 				var order = _context.Orders.FirstOrDefault(o => o.UserId == userId && !o.IsFinal);
 				if (order != null)
 				{
-					var orderDetails = _context.OrderDetails.FirstOrDefault(od => 
+					var orderDetails = _context.OrderDetails.FirstOrDefault(od =>
 						od.OrderId == order.Id && od.ProductId == product.Id);
 					if (orderDetails != null)
 					{
@@ -100,7 +100,8 @@ namespace Market.Controllers
 		public IActionResult RemoveCartItem(int id)
 		{
 			var orderDetails = _context.OrderDetails.Find(id);
-			if (orderDetails != null) {
+			if (orderDetails != null)
+			{
 				_context.Remove(orderDetails);
 				_context.SaveChanges();
 			}
