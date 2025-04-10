@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 #region Db Context
 builder.Services.AddDbContext<MarketContext>(options =>
 {
-	options.UseSqlServer("Data Source = AMINGH05\\AMINGH05; Initial Catalog = Market; Integrated Security = True; TrustServerCertificate = True");
+	options.UseSqlServer("Data Source = AMINGH05; Initial Catalog = Market; Integrated Security = True; TrustServerCertificate = True");
 });
 #endregion
 
